@@ -9,8 +9,18 @@ class Canvas2D {
     this.canvasContext.clearRect(0, 0, this.canvas.width, this.canvas.height)
   }
 
-  drawImage(image, position) {
-    this.canvasContext.drawImage(image, position.x, position.y);
+  drawImage(image, position, origin, rotation = 0) {
+    if (!position) {
+      postion = new Vector();
+    }
+    if (!origin) {
+      origin = new Vector();
+    }
+    this.canvasContext.save();
+    this.canvasContext.translate(position.x, position.y);
+    this.canvasContext.rotate(rotation);
+    this.canvasContext.drawImage(image, -origin.x, -origin.y);
+    this.canvasContext.restore();
   }
 }
 

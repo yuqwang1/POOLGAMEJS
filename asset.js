@@ -23,5 +23,11 @@ function loadAssets(callback) {
   }
   elements.background = loadElements('poolview.jpg');
   elements.stick = loadElements('stick.png');
+  elements.whiteball = loadElements('whiteball.png');
+  // elements.whiteball = loadElements('whiteball.png');
+  // elements.whiteball = loadElements('whiteball.png');
+  // elements.whiteball = loadElements('whiteball.png');
+  // elements.whiteball = loadElements('whiteball.png');
+  // elements.whiteball = loadElements('whiteball.png');
   assetsLoadingLoop(callback);
 }
