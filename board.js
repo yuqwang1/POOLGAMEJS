@@ -1,4 +1,4 @@
-const DELTA = 0.01;
+const DELTA = 0.004;
 
 class Board {
   constructor () {
@@ -24,10 +24,18 @@ class Board {
     this.whiteball = this.balls[15];
     // this.yellowball = new Ball(new Vector(300,300));
     this.stick = new Stick(new Vector(300,250), this.whiteball.shoot.bind(this.whiteball));
+    this.poolTable = {
+      TOP: 93,
+      LEFT: 113,
+      BOTTOM: 410,
+      RIGHT: 893
+    }
   }
 
   handleCollisions() {
     for (let i = 0; i < this.balls.length; i++) {
+      this.balls[i].ballInPocket();
+      this.balls[i].collideWith(this.poolTable);
       for (let j = i + 1; j < this.balls.length; j++) {
         const firstBall = this.balls[i];
         const secondBall = this.balls[j];

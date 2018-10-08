@@ -23,7 +23,7 @@ function loadAssets(callback) {
   }
   elements.background = loadElements('poolview.jpg');
   elements.stick = loadElements('stick.png');
-  elements.whiteball = loadElements('whiteball.png');
+  elements.whiteball = loadElements('white1.png');
   elements.yellowball = loadElements('yellow.png');
   elements.blackball = loadElements('black.png');
   elements.purpleball = loadElements('purple.png');

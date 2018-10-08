@@ -12,6 +12,7 @@ class Stick {
   }
 
   update () {
+    if (this.action === true) return;
     if (Mouse.left.down) {
       this.increasePower();
     } else if (this.power > 0) {
@@ -32,7 +33,10 @@ class Stick {
   }
 
   increasePower () {
-    this.power += 100;
+    if (this.power > 8000) {
+      return;
+    }
+    this.power += 150;
     this.origin.x += 5;
   }
 

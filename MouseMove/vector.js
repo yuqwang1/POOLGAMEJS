@@ -21,7 +21,7 @@ class Vector {
     return new Vector(this.x - vector.x, this.y - vector.y);
   }
 
-  square (vector) {
+  dot_product (vector) {
     return this.x * vector.x + this.y * vector.y;
   }
 
@@ -31,5 +31,9 @@ class Vector {
 
   length() {
     return Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2));
+  }
+
+  distForm(vector) {
+    return this.subtract(vector).length();
   }
 }
