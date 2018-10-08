@@ -33,7 +33,7 @@ class Vector {
     return Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2));
   }
 
-  distForm(vector) {
+  distFrom(vector) {
     return this.subtract(vector).length();
   }
 }

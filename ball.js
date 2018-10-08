@@ -6,35 +6,41 @@
 const BALL_ORIGIN = new Vector(13,13);
 const BALL_DIAMETER = 25;
 const POCKET_POSITION = [
-  new Vector(93, 113),
-  new Vector(93, 553),
-  new Vector(93, 893),
-  new Vector(410, 113),
-  new Vector(410, 553),
-  new Vector(410, 893),
+  new Vector(113, 93),
+  new Vector(503, 93),
+  new Vector(893, 93),
+  new Vector(113, 410),
+  new Vector(503, 410),
+  new Vector(893, 410),
 ]
 
-POCKET_RADIUS = 30
+POCKET_RADIUS = 30;
 class Ball {
   constructor(position, color){
     this.position = position;
     this.velocity = new Vector();
     this.moving = false;
     this.color = getBallByColor(color);
+    this.visible = true;
   }
 
   update(quantity) {
     // debugger
-
+    if (!this.visible) {
+      return;
+    }
     this.position.accumulate(this.velocity.multiply(quantity));
     this.velocity = this.velocity.multiply(0.99);
-    if (this.velocity.length() < 10) {
+    if (this.velocity.length() < 30) {
       this.velocity = new Vector();
       this.moving = false;
     }
   }
 
   draw() {
+    if (!this.visible) {
+      return;
+    }
     Canvas.drawImage(this.color, this.position, BALL_ORIGIN);
   }
 
@@ -45,7 +51,7 @@ class Ball {
   }
 
   collideWith(table) {
-    if (!this.moving) {
+    if (!this.moving || !this.visible) {
       return;
     }
 
@@ -72,6 +78,9 @@ class Ball {
   }
 
   collide(ball) {
+    if (!this.visible || !ball.visible) {
+      return;
+    }
     // find a normal vector
     const n = this.position.subtract(ball.position);
     // find the distance
@@ -108,13 +117,19 @@ class Ball {
   }
 
   ballInPocket() {
+    if (!this.visible) {
+      return;
+    }
     let inPocket = POCKET_POSITION.some(pocket => {
-      return this.position.distForm(pocket) < POCKET_RADIUS;
+      return this.position.distFrom(pocket) < POCKET_RADIUS;
     });
 
-    if (inPocket) {
-      console.log("pocket");
+    if (!inPocket) {
+      return;
     }
+
+    this.visible = false;
+    this.moving = false;
   }
 
 }
