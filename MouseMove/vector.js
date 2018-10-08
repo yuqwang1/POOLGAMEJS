@@ -8,9 +8,21 @@ class Vector {
     return new Vector(this.x, this.y);
   }
 
-  combine (vector) {
+  accumulate (vector) {
     this.x += vector.x;
     this.y += vector.y;
+  }
+
+  sum (vector) {
+    return new Vector(this.x + vector.x, this.y + vector.y);
+  }
+
+  subtract (vector) {
+    return new Vector(this.x - vector.x, this.y - vector.y);
+  }
+
+  square (vector) {
+    return this.x * vector.x + this.y * vector.y;
   }
 
   multiply(quantity) {
