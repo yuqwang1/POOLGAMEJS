@@ -21,7 +21,7 @@ function loadAssets(callback) {
     }
     return elementImage;
   }
-  elements.background = loadElements('poolview.jpg');
+  elements.background = loadElements('poolboard2.png');
   elements.stick = loadElements('stick.png');
   elements.whiteball = loadElements('white1.png');
   elements.yellowball = loadElements('yellow.png');

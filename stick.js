@@ -26,8 +26,8 @@ class Stick {
   }
 
   rotationUpdate() {
-    let opposite = Mouse.position.y - this.position.y;
-    let adjacent = Mouse.position.x - this.position.x;
+    let opposite = Mouse.position.y - this.position.y - 120;
+    let adjacent = Mouse.position.x - this.position.x ;
 
     this.rotation = Math.atan2(opposite, adjacent);
   }

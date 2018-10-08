@@ -14,7 +14,7 @@ const POCKET_POSITION = [
   new Vector(893, 410),
 ]
 
-POCKET_RADIUS = 30;
+POCKET_RADIUS = 20;
 class Ball {
   constructor(position, color){
     this.position = position;
