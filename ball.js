@@ -25,7 +25,6 @@ class Ball {
   }
 
   update(quantity) {
-    // debugger
     if (!this.visible) {
       return;
     }

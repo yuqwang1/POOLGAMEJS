@@ -24,6 +24,7 @@ class Board {
     this.whiteball = this.balls[15];
     // this.yellowball = new Ball(new Vector(300,300));
     this.stick = new Stick(new Vector(300,250), this.whiteball.shoot.bind(this.whiteball));
+    // this.score = new Score();
     this.poolTable = {
       TOP: 93,
       LEFT: 113,
@@ -50,22 +51,18 @@ class Board {
    for (let i = 0; i < this.balls.length; i++) {
      this.balls[i].update(DELTA);
    }
-   // this.balls[15].update(DELTA);
-   // this.yellowball.update(DELTA);
    if (!this.ballsMoving() && this.stick.action) {
      this.stick.reposition(this.whiteball.position);
    }
  }
 
  draw() {
-   // debugger
    Canvas.drawImage(elements.background, {x:0, y:0});
    this.stick.draw();
-   // this.balls[15].draw();
+   // this.score.draw();
    for (let i = 0; i < this.balls.length; i++) {
      this.balls[i].draw();
    }
-   // this.yellowball.draw();
  }
 
  ballsMoving() {
