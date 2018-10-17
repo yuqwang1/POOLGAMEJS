@@ -1,9 +1,4 @@
-// TOP: 93,
-// LEFT: 113,
-// BOTTOM: 410,
-// RIGHT: 893
-
-const BALL_ORIGIN = new Vector(13,13);
+ const BALL_ORIGIN = new Vector(13,13);
 const BALL_DIAMETER = 25;
 const POCKET_POSITION = [
   new Vector(113, 93),
