@@ -7,11 +7,11 @@
 
 body {
   background: url("https://static.vecteezy.com/system/resources/previews/000/160/186/non_2x/billiards-background-vector.jpg");
-  background-size: 100% 100%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   box-sizing: border-box;
-  height: 800px;
+  /* height: 900px; */
 }
 
 
